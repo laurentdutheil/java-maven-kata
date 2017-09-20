@@ -14,10 +14,11 @@ public class ApplicationTest {
         String expected = "Hello";
 
         // When
-        String result = application.sayHello();
+        String result = application.sayByebye();
 
         // Then
         assertThat(result).isEqualTo(expected);
     }
+
 
 }

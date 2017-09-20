@@ -2,8 +2,8 @@ package fr.octo;
 
 public class Application {
 
-    public String sayHello() {
-        return "Hello";
+    public String sayByebye() {
+        return "aurevoir";
     }
 
 }
