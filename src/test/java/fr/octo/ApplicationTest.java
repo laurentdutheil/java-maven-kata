@@ -9,16 +9,15 @@ public class ApplicationTest {
     private Application application = new Application();
 
     @Test
-    public void sayYouHou() {
+    public void sayHello() {
         // Given
-        String expected = "youHou";
+        String expected = "Hello";
 
         // When
-        String result = application.sayByebye();
+        String result = application.sayHello();
 
         // Then
         assertThat(result).isEqualTo(expected);
     }
-
 
 }
