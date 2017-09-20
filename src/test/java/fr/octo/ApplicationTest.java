@@ -9,12 +9,12 @@ public class ApplicationTest {
     private Application application = new Application();
 
     @Test
-    public void sayMoikka() {
+    public void sayYouHou() {
         // Given
-        String expected = "Moikka";
+        String expected = "youHou";
 
         // When
-        String result = application.sayMoikka();
+        String result = application.sayYouHou();
 
         // Then
         assertThat(result).isEqualTo(expected);

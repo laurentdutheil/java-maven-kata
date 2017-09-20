@@ -2,8 +2,10 @@ package fr.octo;
 
 public class Application {
 
-    public String sayMoikka() {
-        return "Moikka";
+    public String sayYouHou() {
+
+        return "youHou";
+
     }
 
 }
