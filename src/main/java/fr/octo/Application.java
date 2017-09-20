@@ -2,10 +2,9 @@ package fr.octo;
 
 public class Application {
 
-    public String sayHello() {
+    public String sayYouHou() {
 
-        String newHello="hello";
-        return newHello;
+        return "youHou";
 
     }
 
