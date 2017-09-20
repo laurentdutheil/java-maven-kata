@@ -9,9 +9,9 @@ public class ApplicationTest {
     private Application application = new Application();
 
     @Test
-    public void sayHello() {
+    public void sayYouHou() {
         // Given
-        String expected = "Hello";
+        String expected = "youHou";
 
         // When
         String result = application.sayByebye();
