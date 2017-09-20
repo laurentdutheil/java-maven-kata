@@ -3,7 +3,10 @@ package fr.octo;
 public class Application {
 
     public String sayHello() {
-        return "Hello";
+
+        String newHello="hello";
+        return newHello;
+
     }
 
 }
