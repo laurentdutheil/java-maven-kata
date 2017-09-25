@@ -9,3 +9,4 @@ bin/
 out/
 .gradle/
 build/
+vagrantFile
