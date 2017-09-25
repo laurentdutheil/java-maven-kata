@@ -1,5 +1,7 @@
 package fr.puissance4;
 
+import java.util.Arrays;
+
 public class Grille {
 
 
@@ -13,6 +15,10 @@ public class Grille {
 
     private static final int NBLIGNE = 6;
     private static final int NBCOLONNE = 7;
+
+
+
+
     private String[][] matrice = new String[NBLIGNE][NBCOLONNE];
 
     public String[][] getMatrice() {
@@ -24,7 +30,7 @@ public class Grille {
     }
 
 
-    public void intitGrille() {
+    public void initGrille() {
 
         int i, j;
         for (i = 0; i < NBLIGNE; i++) {
@@ -35,11 +41,10 @@ public class Grille {
         }
     }
 
-    public void insertjeton(int j, String jeton) throws MaxJetonsException {
-        int i = getNumberLineToInsert(j);
-        if (i!=NBLIGNE) matrice[i][j] = jeton;
-        else throw new MaxJetonsException("Pas possible");
 
+
+    public void insertJetonByLineAndColumn(int i, int j, String jeton) {
+        matrice[i][j] = jeton;
 
     }
 
@@ -49,8 +54,32 @@ public class Grille {
             if (matrice[i][j] != ".") {
                 i++;
             }
+            else break;
         }
         return i;
+
     }
+
+    public void insertJeton(int j, String jeton) throws MaxJetonsException {
+        int i = getNumberLineToInsert(j);
+        if (i!=NBLIGNE) matrice[i][j] = jeton;
+        else throw new MaxJetonsException("Pas possible");
+
+
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+        for (int i=0;i<NBLIGNE;i++){
+            for (int j=0;j<NBCOLONNE;j++) {
+                result += matrice[i][j];
+            }
+            result += "\n";
+        }
+
+        return result;
+    }
+
 
 }
