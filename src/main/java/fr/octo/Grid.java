@@ -13,8 +13,12 @@ public class Grid {
     }
 
     public void addToken(int columnIndex) {
-        if(grid[5][columnIndex] != 0) {
-            throw new IllegalArgumentException("No more than 6 tokens");
+        for (int i = 0; i < grid.length; i++) {
+            if (grid[i][columnIndex] == 0) {
+                grid[i][columnIndex] = 1;
+                return;
+            }
         }
+        throw new IllegalArgumentException("No more than 6 tokens");
     }
 }
