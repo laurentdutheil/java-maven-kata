@@ -7,6 +7,19 @@ import static org.junit.Assert.assertEquals;
 
 public class GrilleTest {
 
+	private boolean GrilleEstVide(Grille g) {
+		boolean isEmpty = true;
+		for (int i = 0; i < Grille.COLONNE && isEmpty; i++){
+			for (int j = 0; j < Grille.LIGNE && isEmpty; j++) {
+				if ( !g.isCellEmpty(i,j)){
+					isEmpty = false;
+				}
+			}
+		}
+
+		return isEmpty;
+	}
+
 	@Test
 	public void NouvelleGrilleEstBienVide () {
 		assertEquals(true, GrilleEstVide(new Grille()));
@@ -29,15 +42,6 @@ public class GrilleTest {
 	}
 
 	@Test
-	public void JouerDeuxJetonsMemeColonne () {
-		Grille g = new Grille();
-		g.ajouterJeton(0, Grille.J1);
-		g.ajouterJeton(0, Grille.J1);
-		assertEquals(false, g.isCellEmpty(0,0) );
-		assertEquals(false, g.isCellEmpty(0,1) );
-	}
-
-	@Test
 	public void JouerSeptJetonsMemeColonne () {
 		Grille g = new Grille();
 		for (int i= 0; i < 6; i++) {
@@ -45,19 +49,6 @@ public class GrilleTest {
 		}
 		assertEquals(false, g.ajouterJeton(2, Grille.J1));
 
-	}
-
-	private boolean GrilleEstVide(Grille g) {
-		boolean isEmpty = true;
-		for (int i = 0; i < Grille.COLONNE && isEmpty; i++){
-			for (int j = 0; j < Grille.LIGNE && isEmpty; j++) {
-				if ( !g.isCellEmpty(i,j)){
-					isEmpty = false;
-				}
-			}
-		}
-
-		return isEmpty;
 	}
 
 	@Test
