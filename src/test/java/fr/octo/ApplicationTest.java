@@ -14,7 +14,8 @@ public class ApplicationTest {
         String expected = "Ciao";
 
         // When
-        String result = application.sayCiao();
+        String result;
+        result = application.sayCiao();
 
         // Then
         assertThat(result).isEqualTo(expected);
