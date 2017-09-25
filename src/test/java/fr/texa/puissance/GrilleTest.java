@@ -34,4 +34,17 @@ public class GrilleTest {
        assertThat(grille.toString()).isEqualTo("o......\n*......\n" +
                "*......\no......\n*......\no......\n");
     }
+
+    @Test
+    public void should_verify_place_token_in_different_rows() {
+        Grille grille = new Grille();
+        grille.place(0, 'o');
+        grille.place(2, '*');
+        grille.place(2, 'o');
+        grille.place(0, '*');
+        grille.place(5, '*');
+        grille.place(0, 'o');
+        assertThat(grille.toString()).isEqualTo(".......\n.......\n" +
+                ".......\no......\n*.o....\no.*..*.\n");
+    }
 }
