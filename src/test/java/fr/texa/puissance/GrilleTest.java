@@ -3,15 +3,19 @@ package fr.texa.puissance;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
 
 public class GrilleTest {
 
     @Test
     public void should_verify_that_grille_not_null() {
        Grille grille = new Grille();
-       assertThat(grille.toString()).isEqualTo(".......\n.......\n" +
-               ".......\n.......\n.......\n.......\n");
+       assertThat(grille.toString()).isEqualTo(
+                                    ".......\n" +
+                                    ".......\n" +
+                                    ".......\n" +
+                                    ".......\n" +
+                                    ".......\n" +
+                                    ".......\n");
     }
 
    @Test

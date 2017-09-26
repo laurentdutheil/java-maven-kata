@@ -4,8 +4,12 @@ public class Grille {
 
     private String data;
     public Grille() {
-        this.data = ".......\n.......\n" +
-        ".......\n.......\n.......\n.......\n";
+        this.data = ".......\n" +
+                    ".......\n" +
+                    ".......\n" +
+                    ".......\n" +
+                    ".......\n" +
+                    ".......\n";
     }
 
     @Override
@@ -14,26 +18,10 @@ public class Grille {
     }
 
     public void place(int x, char type){
-
-        if (this.data.charAt(x + 40) == '.') {
-            this.data = this.data.substring(0, x + 40)+ type +this.data.substring(x + 41);
+        for(int i = 0; i < 41; i += 8) {
+            if (this.data.charAt(x + i) == '.') {
+                this.data = this.data.substring(0, x + i)+ type +this.data.substring(x + i + 1);
+            }
         }
-        else if (this.data.charAt(x + 32) == '.') {
-            this.data = this.data.substring(0,x + 32)+ type +this.data.substring(x + 33);
-        }
-        else if (this.data.charAt(x + 24) == '.') {
-            this.data = this.data.substring(0,x + 24)+ type +this.data.substring(x + 25);
-        }
-        else if (this.data.charAt(x + 16) == '.') {
-            this.data = this.data.substring(0,x + 16)+ type +this.data.substring(x + 17);
-        }
-        else if (this.data.charAt(x + 8) == '.') {
-            this.data = this.data.substring(0,x + 8)+ type +this.data.substring(x + 9);
-        }
-        else if (this.data.charAt(x) == '.') {
-            this.data = type +this.data.substring(x + 1);
-        }
-
-
     }
 }
