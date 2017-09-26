@@ -2,7 +2,7 @@ package fr.puissance4;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Rule;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.util.Arrays;
@@ -50,10 +50,6 @@ public class GrilleTest {
 
     }
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    @Test
     public void should_give_colum_where_insert()
     {
      // given
@@ -71,9 +67,8 @@ public class GrilleTest {
 
     }
 
-    @Test
+    @Test(expected = MaxJetonsException.class)
     public void should_not_insert_when_not_free() throws MaxJetonsException {
-        thrown.expect(MaxJetonsException.class);
 
      // given
         grille.initGrille();
@@ -85,7 +80,7 @@ public class GrilleTest {
         grille.insertJeton(0,"o");
 
      // When
-        grille.insertJeton(1,"o");
+        grille.insertJeton(0,"o");
 
      //then
 
@@ -135,7 +130,7 @@ public class GrilleTest {
         String expectedResult =
                 "o......\n" +
                         "*......\n" +
-                        ".......\n" +
+                        "o......\n" +
                         "o......\n" +
                         "o......\n" +
                         "*......\n";
