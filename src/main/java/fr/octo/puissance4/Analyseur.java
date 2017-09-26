@@ -64,4 +64,6 @@ public class Analyseur {
     public boolean partieNulle() {
         return grille.plateauDuJeuEstRempli() && !partieGagnee();
     }
+
+    public Grille getGrille() {return this.grille;}
 }

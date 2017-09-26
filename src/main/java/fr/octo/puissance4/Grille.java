@@ -8,6 +8,7 @@ public class Grille {
     public static final String JOUEUR_2 = "*";
 
     private String[][] plateauDuJeu;
+    private Arbitre arbitre;
 
     public Grille() {
         plateauDuJeu = new String[COLONNE][LIGNE];
