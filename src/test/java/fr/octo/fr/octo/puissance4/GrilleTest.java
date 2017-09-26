@@ -28,15 +28,15 @@ public class GrilleTest {
 	@Test
 	public void JouerUnJeton () {
 		Grille g = new Grille();
-		g.ajouterJeton(0, Grille.J1);
+		g.addToken(0, Grille.J1);
 		assertEquals(Grille.J1, g.getCellValue(0,0));
 	}
 
 	@Test
 	public void JouerDeuxJetonsDifferentsMemeColonne() {
 		Grille g = new Grille();
-		g.ajouterJeton(0, Grille.J1);
-		g.ajouterJeton(0, Grille.J2);
+		g.addToken(0, Grille.J1);
+		g.addToken(0, Grille.J2);
 		assertEquals(Grille.J1, g.getCellValue(0,0));
 		assertEquals(Grille.J2, g.getCellValue(0,1));
 	}
@@ -45,9 +45,9 @@ public class GrilleTest {
 	public void JouerSeptJetonsMemeColonne () {
 		Grille g = new Grille();
 		for (int i= 0; i < 6; i++) {
-			assertEquals(true, g.ajouterJeton(2, Grille.J1));
+			assertEquals(true, g.addToken(2, Grille.J1));
 		}
-		assertEquals(false, g.ajouterJeton(2, Grille.J1));
+		assertEquals(false, g.addToken(2, Grille.J1));
 
 	}
 
@@ -56,8 +56,8 @@ public class GrilleTest {
 		Grille g = new Grille();
 
 		for (int i= 0; i < 6; i++) {
-			g.ajouterJeton(0,Grille.J1);
-			g.ajouterJeton(1,Grille.J2);
+			g.addToken(0,Grille.J1);
+			g.addToken(1,Grille.J2);
 		}
 		g.vider();
 
@@ -82,7 +82,7 @@ public class GrilleTest {
 	@Test
 	public void AfficherGrilleAvecUnJeton () {
 		Grille g = new Grille();
-		g.ajouterJeton(0, Grille.J2);
+		g.addToken(0, Grille.J2);
 		String expectedResult =
 				".......\n" +
 						".......\n" +
@@ -98,10 +98,10 @@ public class GrilleTest {
 	public void AfficherGrilleAvecQuatreJetons () {
 		Grille g = new Grille();
 
-		g.ajouterJeton(3, Grille.J1);
-		g.ajouterJeton(4, Grille.J2);
-		g.ajouterJeton(4, Grille.J1);
-		g.ajouterJeton(5, Grille.J2);
+		g.addToken(3, Grille.J1);
+		g.addToken(4, Grille.J2);
+		g.addToken(4, Grille.J1);
+		g.addToken(5, Grille.J2);
 
 		String expectedResult =
 				".......\n" +

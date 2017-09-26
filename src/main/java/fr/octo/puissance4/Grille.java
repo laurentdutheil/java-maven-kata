@@ -7,39 +7,38 @@ public class Grille {
 	public static final String J1 = "O";
 	public static final String J2 = "*";
 
-	private String[][] jetons;
+	private String[][] cells;
 
 	public Grille() {
-		jetons = new String[COLONNE][LIGNE];
+		cells = new String[COLONNE][LIGNE];
 	}
 
 	public boolean isCellEmpty(int c, int l) {
-		return jetons[c][l] == null;
+		return cells[c][l] == null;
 	}
 
-	public boolean ajouterJeton(int c, String joueur) {
+	public boolean addToken(int c, String token) {
 		boolean success = false;
 		for (int l = 0; l < LIGNE; l++) {
 			if (isCellEmpty(c,l)) {
-				jetons[c][l] = joueur;
+				cells[c][l] = token;
 				success = true;
 				break;
-
 			}
 		}
 		return success;
 	}
 
 	public String getCellValue(int c, int l) {
-		return jetons[c][l];
+		return cells[c][l];
 	}
 
 	private String getCellValueAsString(int c, int l) {
-		return (jetons[c][l] == null ? "." : jetons[c][l]);
+		return (cells[c][l] == null ? "." : cells[c][l]);
 	}
 
 	public void vider() {
-		jetons = new String[COLONNE][LIGNE];
+		cells = new String[COLONNE][LIGNE];
 	}
 
 
