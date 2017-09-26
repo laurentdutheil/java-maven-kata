@@ -4,24 +4,24 @@ public class Grille {
 	public static final int COLONNE = 7;
 	public static final int LIGNE = 6;
 
-	public static final String J1 = "O";
-	public static final String J2 = "*";
+	public static final String JOUEUR_1 = "O";
+	public static final String JOUEUR_2 = "*";
 
-	private String[][] jetons;
+	private String[][] grille;
 
 	public Grille() {
-		jetons = new String[COLONNE][LIGNE];
+		grille = new String[COLONNE][LIGNE];
 	}
 
 	public boolean isCellEmpty(int c, int l) {
-		return jetons[c][l] == null;
+		return grille[c][l] == null;
 	}
 
-	public boolean ajouterJeton(int c, String joueur) {
+	public boolean jouer(int c, String joueur) {
 		boolean success = false;
 		for (int l = 0; l < LIGNE; l++) {
 			if (isCellEmpty(c,l)) {
-				jetons[c][l] = joueur;
+				grille[c][l] = joueur;
 				success = true;
 				break;
 
@@ -31,15 +31,15 @@ public class Grille {
 	}
 
 	public String getCellValue(int c, int l) {
-		return jetons[c][l];
+		return grille[c][l];
 	}
 
 	private String getCellValueAsString(int c, int l) {
-		return (jetons[c][l] == null ? "." : jetons[c][l]);
+		return (grille[c][l] == null ? "." : grille[c][l]);
 	}
 
 	public void vider() {
-		jetons = new String[COLONNE][LIGNE];
+		grille = new String[COLONNE][LIGNE];
 	}
 
 
