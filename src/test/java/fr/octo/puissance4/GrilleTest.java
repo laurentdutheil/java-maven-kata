@@ -28,26 +28,26 @@ public class GrilleTest {
 	@Test
 	public void JouerUnJeton () {
 		Grille g = new Grille();
-		g.jouer(0, Grille.JOUEUR_1);
-		assertEquals(Grille.JOUEUR_1, g.getCellValue(0,0));
+		g.jouer(0, Arbitre.JOUEUR_JAUNE);
+		assertEquals(Arbitre.JOUEUR_JAUNE, g.getCellValue(0,0));
 	}
 
 	@Test
 	public void JouerDeuxJetonsDifferentsMemeColonne() {
 		Grille g = new Grille();
-		g.jouer(0, Grille.JOUEUR_1);
-		g.jouer(0, Grille.JOUEUR_2);
-		assertEquals(Grille.JOUEUR_1, g.getCellValue(0,0));
-		assertEquals(Grille.JOUEUR_2, g.getCellValue(0,1));
+		g.jouer(0, Arbitre.JOUEUR_JAUNE);
+		g.jouer(0, Arbitre.JOUEUR_ROUGE);
+		assertEquals(Arbitre.JOUEUR_JAUNE, g.getCellValue(0,0));
+		assertEquals(Arbitre.JOUEUR_ROUGE, g.getCellValue(0,1));
 	}
 
 	@Test
 	public void JouerSeptJetonsMemeColonne () {
 		Grille g = new Grille();
 		for (int i= 0; i < 6; i++) {
-			assertEquals(true, g.jouer(2, Grille.JOUEUR_1));
+			assertEquals(true, g.jouer(2, Arbitre.JOUEUR_JAUNE));
 		}
-		assertEquals(false, g.jouer(2, Grille.JOUEUR_1));
+		assertEquals(false, g.jouer(2, Arbitre.JOUEUR_JAUNE));
 
 	}
 
@@ -56,8 +56,8 @@ public class GrilleTest {
 		Grille g = new Grille();
 
 		for (int i= 0; i < 6; i++) {
-			g.jouer(0,Grille.JOUEUR_1);
-			g.jouer(1,Grille.JOUEUR_2);
+			g.jouer(0, Arbitre.JOUEUR_JAUNE);
+			g.jouer(1, Arbitre.JOUEUR_ROUGE);
 		}
 		g.vider();
 
@@ -81,14 +81,14 @@ public class GrilleTest {
 	@Test
 	public void AfficherGrilleAvecUnJeton () {
 		Grille g = new Grille();
-		g.jouer(0, Grille.JOUEUR_2);
+		g.jouer(0, Arbitre.JOUEUR_ROUGE);
 		String expectedResult =
 				".......\n" +
 				".......\n" +
 				".......\n" +
 				".......\n" +
 				".......\n" +
-				Grille.JOUEUR_2 + "......\n";
+				Arbitre.JOUEUR_ROUGE + "......\n";
 
 		assertEquals(expectedResult, g.toString());
 	}
@@ -97,18 +97,18 @@ public class GrilleTest {
 	public void AfficherGrilleAvecQuatreJetons () {
 		Grille g = new Grille();
 
-		g.jouer(3, Grille.JOUEUR_1);
-		g.jouer(4, Grille.JOUEUR_2);
-		g.jouer(4, Grille.JOUEUR_1);
-		g.jouer(5, Grille.JOUEUR_2);
+		g.jouer(3, Arbitre.JOUEUR_JAUNE);
+		g.jouer(4, Arbitre.JOUEUR_ROUGE);
+		g.jouer(4, Arbitre.JOUEUR_JAUNE);
+		g.jouer(5, Arbitre.JOUEUR_ROUGE);
 
 		String expectedResult =
 				".......\n" +
 				".......\n" +
 				".......\n" +
 				".......\n" +
-				"...." + Grille.JOUEUR_1 + "..\n" +
-				"..." + Grille.JOUEUR_1 + Grille.JOUEUR_2 + Grille.JOUEUR_2 + ".\n";
+				"...." + Arbitre.JOUEUR_JAUNE + "..\n" +
+				"..." + Arbitre.JOUEUR_JAUNE + Arbitre.JOUEUR_ROUGE + Arbitre.JOUEUR_ROUGE + ".\n";
 		assertEquals(expectedResult, g.toString());
 	}
 
@@ -121,54 +121,54 @@ public class GrilleTest {
 		// 2 1 2 1 1 1 2
 		// 1 2 1 1 2 2 1
 		Grille g = new Grille();
-		g.jouer(0, Grille.JOUEUR_1);
-		g.jouer(0, Grille.JOUEUR_2);
-		g.jouer(0, Grille.JOUEUR_1);
-		g.jouer(0, Grille.JOUEUR_1);
-		g.jouer(0, Grille.JOUEUR_2);
-		g.jouer(0, Grille.JOUEUR_1);
+		g.jouer(0, Arbitre.JOUEUR_JAUNE);
+		g.jouer(0, Arbitre.JOUEUR_ROUGE);
+		g.jouer(0, Arbitre.JOUEUR_JAUNE);
+		g.jouer(0, Arbitre.JOUEUR_JAUNE);
+		g.jouer(0, Arbitre.JOUEUR_ROUGE);
+		g.jouer(0, Arbitre.JOUEUR_JAUNE);
 
-		g.jouer(1, Grille.JOUEUR_2);
-		g.jouer(1, Grille.JOUEUR_1);
-		g.jouer(1, Grille.JOUEUR_1);
-		g.jouer(1, Grille.JOUEUR_2);
-		g.jouer(1, Grille.JOUEUR_1);
-		g.jouer(1, Grille.JOUEUR_2);
+		g.jouer(1, Arbitre.JOUEUR_ROUGE);
+		g.jouer(1, Arbitre.JOUEUR_JAUNE);
+		g.jouer(1, Arbitre.JOUEUR_JAUNE);
+		g.jouer(1, Arbitre.JOUEUR_ROUGE);
+		g.jouer(1, Arbitre.JOUEUR_JAUNE);
+		g.jouer(1, Arbitre.JOUEUR_ROUGE);
 
-		g.jouer(2, Grille.JOUEUR_1);
-		g.jouer(2, Grille.JOUEUR_2);
-		g.jouer(2, Grille.JOUEUR_1);
-		g.jouer(2, Grille.JOUEUR_2);
-		g.jouer(2, Grille.JOUEUR_1);
-		g.jouer(2, Grille.JOUEUR_1);
+		g.jouer(2, Arbitre.JOUEUR_JAUNE);
+		g.jouer(2, Arbitre.JOUEUR_ROUGE);
+		g.jouer(2, Arbitre.JOUEUR_JAUNE);
+		g.jouer(2, Arbitre.JOUEUR_ROUGE);
+		g.jouer(2, Arbitre.JOUEUR_JAUNE);
+		g.jouer(2, Arbitre.JOUEUR_JAUNE);
 
-		g.jouer(3, Grille.JOUEUR_1);
-		g.jouer(3, Grille.JOUEUR_1);
-		g.jouer(3, Grille.JOUEUR_2);
-		g.jouer(3, Grille.JOUEUR_2);
-		g.jouer(3, Grille.JOUEUR_2);
-		g.jouer(3, Grille.JOUEUR_1);
+		g.jouer(3, Arbitre.JOUEUR_JAUNE);
+		g.jouer(3, Arbitre.JOUEUR_JAUNE);
+		g.jouer(3, Arbitre.JOUEUR_ROUGE);
+		g.jouer(3, Arbitre.JOUEUR_ROUGE);
+		g.jouer(3, Arbitre.JOUEUR_ROUGE);
+		g.jouer(3, Arbitre.JOUEUR_JAUNE);
 
-		g.jouer(4, Grille.JOUEUR_2);
-		g.jouer(4, Grille.JOUEUR_1);
-		g.jouer(4, Grille.JOUEUR_2);
-		g.jouer(4, Grille.JOUEUR_1);
-		g.jouer(4, Grille.JOUEUR_1);
-		g.jouer(4, Grille.JOUEUR_2);
+		g.jouer(4, Arbitre.JOUEUR_ROUGE);
+		g.jouer(4, Arbitre.JOUEUR_JAUNE);
+		g.jouer(4, Arbitre.JOUEUR_ROUGE);
+		g.jouer(4, Arbitre.JOUEUR_JAUNE);
+		g.jouer(4, Arbitre.JOUEUR_JAUNE);
+		g.jouer(4, Arbitre.JOUEUR_ROUGE);
 
-		g.jouer(5, Grille.JOUEUR_2);
-		g.jouer(5, Grille.JOUEUR_1);
-		g.jouer(5, Grille.JOUEUR_2);
-		g.jouer(5, Grille.JOUEUR_2);
-		g.jouer(5, Grille.JOUEUR_1);
-		g.jouer(5, Grille.JOUEUR_1);
+		g.jouer(5, Arbitre.JOUEUR_ROUGE);
+		g.jouer(5, Arbitre.JOUEUR_JAUNE);
+		g.jouer(5, Arbitre.JOUEUR_ROUGE);
+		g.jouer(5, Arbitre.JOUEUR_ROUGE);
+		g.jouer(5, Arbitre.JOUEUR_JAUNE);
+		g.jouer(5, Arbitre.JOUEUR_JAUNE);
 
-		g.jouer(6, Grille.JOUEUR_1);
-		g.jouer(6, Grille.JOUEUR_2);
-		g.jouer(6, Grille.JOUEUR_1);
-		g.jouer(6, Grille.JOUEUR_1);
-		g.jouer(6, Grille.JOUEUR_2);
-		g.jouer(6, Grille.JOUEUR_1);
+		g.jouer(6, Arbitre.JOUEUR_JAUNE);
+		g.jouer(6, Arbitre.JOUEUR_ROUGE);
+		g.jouer(6, Arbitre.JOUEUR_JAUNE);
+		g.jouer(6, Arbitre.JOUEUR_JAUNE);
+		g.jouer(6, Arbitre.JOUEUR_ROUGE);
+		g.jouer(6, Arbitre.JOUEUR_JAUNE);
 
 
 		assertTrue( g.plateauDuJeuEstRempli() );

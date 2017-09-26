@@ -18,10 +18,10 @@ public class AnalyseurTest {
     @Test
     public void VerifieSiGagnantEnLigneHorizontale() {
 
-        grille.jouer(0, Grille.JOUEUR_1);
-        grille.jouer(1, Grille.JOUEUR_1);
-        grille.jouer(2, Grille.JOUEUR_1);
-        grille.jouer(3, Grille.JOUEUR_1);
+        grille.jouer(0, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(1, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(3, Arbitre.JOUEUR_JAUNE);
 
         assertTrue(analyseur.partieGagnee());
     }
@@ -29,10 +29,10 @@ public class AnalyseurTest {
     @Test
     public void VerifieSiGagnantEnColonne() {
 
-        grille.jouer(2, Grille.JOUEUR_1);
-        grille.jouer(2, Grille.JOUEUR_1);
-        grille.jouer(2, Grille.JOUEUR_1);
-        grille.jouer(2, Grille.JOUEUR_1);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
 
         assertTrue(analyseur.partieGagnee());
     }
@@ -44,19 +44,19 @@ public class AnalyseurTest {
         // 2 1
         // 2 2 1
         // 2 1 2 1
-        grille.jouer(1, Grille.JOUEUR_2);
-        grille.jouer(1, Grille.JOUEUR_2);
-        grille.jouer(1, Grille.JOUEUR_2);
-        grille.jouer(1, Grille.JOUEUR_1);
+        grille.jouer(1, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(1, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(1, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(1, Arbitre.JOUEUR_JAUNE);
 
-        grille.jouer(2, Grille.JOUEUR_1);
-        grille.jouer(2, Grille.JOUEUR_2);
-        grille.jouer(2, Grille.JOUEUR_1);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(2, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
 
-        grille.jouer(3, Grille.JOUEUR_2);
-        grille.jouer(3, Grille.JOUEUR_1);
+        grille.jouer(3, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(3, Arbitre.JOUEUR_JAUNE);
 
-        grille.jouer(4, Grille.JOUEUR_1);
+        grille.jouer(4, Arbitre.JOUEUR_JAUNE);
 
         assertTrue(analyseur.partieGagnee());
     }
@@ -67,19 +67,19 @@ public class AnalyseurTest {
         //     2 1
         //   2 1 2
         // 2 1 2 1
-        grille.jouer(0, Grille.JOUEUR_2);
+        grille.jouer(0, Arbitre.JOUEUR_ROUGE);
 
-        grille.jouer(1, Grille.JOUEUR_1);
-        grille.jouer(1, Grille.JOUEUR_2);
+        grille.jouer(1, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(1, Arbitre.JOUEUR_ROUGE);
 
-        grille.jouer(2, Grille.JOUEUR_2);
-        grille.jouer(2, Grille.JOUEUR_1);
-        grille.jouer(2, Grille.JOUEUR_2);
+        grille.jouer(2, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(2, Arbitre.JOUEUR_ROUGE);
 
-        grille.jouer(3, Grille.JOUEUR_1);
-        grille.jouer(3, Grille.JOUEUR_2);
-        grille.jouer(3, Grille.JOUEUR_1);
-        grille.jouer(3, Grille.JOUEUR_2);
+        grille.jouer(3, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(3, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(3, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(3, Arbitre.JOUEUR_ROUGE);
 
         assertTrue(analyseur.partieGagnee());
     }
@@ -93,54 +93,54 @@ public class AnalyseurTest {
         // 1 1 1 2 2 2 1
         // 2 1 2 1 1 1 2
         // 1 2 1 1 2 2 1
-        grille.jouer(0, Grille.JOUEUR_1);
-        grille.jouer(0, Grille.JOUEUR_2);
-        grille.jouer(0, Grille.JOUEUR_1);
-        grille.jouer(0, Grille.JOUEUR_1);
-        grille.jouer(0, Grille.JOUEUR_2);
-        grille.jouer(0, Grille.JOUEUR_1);
+        grille.jouer(0, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(0, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(0, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(0, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(0, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(0, Arbitre.JOUEUR_JAUNE);
 
-        grille.jouer(1, Grille.JOUEUR_2);
-        grille.jouer(1, Grille.JOUEUR_1);
-        grille.jouer(1, Grille.JOUEUR_1);
-        grille.jouer(1, Grille.JOUEUR_2);
-        grille.jouer(1, Grille.JOUEUR_1);
-        grille.jouer(1, Grille.JOUEUR_2);
+        grille.jouer(1, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(1, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(1, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(1, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(1, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(1, Arbitre.JOUEUR_ROUGE);
 
-        grille.jouer(2, Grille.JOUEUR_1);
-        grille.jouer(2, Grille.JOUEUR_2);
-        grille.jouer(2, Grille.JOUEUR_1);
-        grille.jouer(2, Grille.JOUEUR_2);
-        grille.jouer(2, Grille.JOUEUR_1);
-        grille.jouer(2, Grille.JOUEUR_1);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(2, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(2, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(2, Arbitre.JOUEUR_JAUNE);
 
-        grille.jouer(3, Grille.JOUEUR_1);
-        grille.jouer(3, Grille.JOUEUR_1);
-        grille.jouer(3, Grille.JOUEUR_2);
-        grille.jouer(3, Grille.JOUEUR_2);
-        grille.jouer(3, Grille.JOUEUR_2);
-        grille.jouer(3, Grille.JOUEUR_1);
+        grille.jouer(3, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(3, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(3, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(3, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(3, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(3, Arbitre.JOUEUR_JAUNE);
 
-        grille.jouer(4, Grille.JOUEUR_2);
-        grille.jouer(4, Grille.JOUEUR_1);
-        grille.jouer(4, Grille.JOUEUR_2);
-        grille.jouer(4, Grille.JOUEUR_1);
-        grille.jouer(4, Grille.JOUEUR_1);
-        grille.jouer(4, Grille.JOUEUR_2);
+        grille.jouer(4, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(4, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(4, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(4, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(4, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(4, Arbitre.JOUEUR_ROUGE);
 
-        grille.jouer(5, Grille.JOUEUR_2);
-        grille.jouer(5, Grille.JOUEUR_1);
-        grille.jouer(5, Grille.JOUEUR_2);
-        grille.jouer(5, Grille.JOUEUR_2);
-        grille.jouer(5, Grille.JOUEUR_1);
-        grille.jouer(5, Grille.JOUEUR_1);
+        grille.jouer(5, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(5, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(5, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(5, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(5, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(5, Arbitre.JOUEUR_JAUNE);
 
-        grille.jouer(6, Grille.JOUEUR_1);
-        grille.jouer(6, Grille.JOUEUR_2);
-        grille.jouer(6, Grille.JOUEUR_1);
-        grille.jouer(6, Grille.JOUEUR_1);
-        grille.jouer(6, Grille.JOUEUR_2);
-        grille.jouer(6, Grille.JOUEUR_1);
+        grille.jouer(6, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(6, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(6, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(6, Arbitre.JOUEUR_JAUNE);
+        grille.jouer(6, Arbitre.JOUEUR_ROUGE);
+        grille.jouer(6, Arbitre.JOUEUR_JAUNE);
 
         assertTrue(analyseur.partieNulle());
 
