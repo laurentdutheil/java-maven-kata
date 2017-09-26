@@ -7,21 +7,21 @@ public class Grille {
 	public static final String JOUEUR_1 = "O";
 	public static final String JOUEUR_2 = "*";
 
-	private String[][] grille;
+	private String[][] plateauDuJeu;
 
 	public Grille() {
-		grille = new String[COLONNE][LIGNE];
+		plateauDuJeu = new String[COLONNE][LIGNE];
 	}
 
 	public boolean isCellEmpty(int c, int l) {
-		return grille[c][l] == null;
+		return plateauDuJeu[c][l] == null;
 	}
 
 	public boolean jouer(int c, String joueur) {
 		boolean success = false;
 		for (int l = 0; l < LIGNE; l++) {
 			if (isCellEmpty(c,l)) {
-				grille[c][l] = joueur;
+				plateauDuJeu[c][l] = joueur;
 				success = true;
 				break;
 
@@ -31,15 +31,20 @@ public class Grille {
 	}
 
 	public String getCellValue(int c, int l) {
-		return grille[c][l];
+		try {
+			return plateauDuJeu[c][l];
+		} catch (ArrayIndexOutOfBoundsException e ) {
+			return null;
+		}
+
 	}
 
 	private String getCellValueAsString(int c, int l) {
-		return (grille[c][l] == null ? "." : grille[c][l]);
+		return (plateauDuJeu[c][l] == null ? "." : plateauDuJeu[c][l]);
 	}
 
 	public void vider() {
-		grille = new String[COLONNE][LIGNE];
+		plateauDuJeu = new String[COLONNE][LIGNE];
 	}
 
 
@@ -57,4 +62,7 @@ public class Grille {
 		return result;
 	}
 
+	public String[][] getPlateauDuJeu() {
+		return plateauDuJeu;
+	}
 }
