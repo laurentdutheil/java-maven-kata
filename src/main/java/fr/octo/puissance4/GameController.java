@@ -45,4 +45,11 @@ public class GameController {
 		return false;
 
 	}
+
+
+
+	public boolean partieNulle() {
+
+		return grille.plateauDuJeuEstRempli() && !estGagnant();
+	}
 }

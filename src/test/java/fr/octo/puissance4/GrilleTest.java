@@ -3,6 +3,7 @@ package fr.octo.puissance4;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class GrilleTest {
 
@@ -109,5 +110,67 @@ public class GrilleTest {
 				"...." + Grille.JOUEUR_1 + "..\n" +
 				"..." + Grille.JOUEUR_1 + Grille.JOUEUR_2 + Grille.JOUEUR_2 + ".\n";
 		assertEquals(expectedResult, g.toString());
+	}
+
+	@Test
+	public void PlateauDuJeuEstRempli () {
+		// 1 2 1 1 2 1 1
+		// 2 1 1 2 1 1 2
+		// 1 2 2 2 1 2 1
+		// 1 1 1 2 2 2 1
+		// 2 1 2 1 1 1 2
+		// 1 2 1 1 2 2 1
+		Grille g = new Grille();
+		g.jouer(0, Grille.JOUEUR_1);
+		g.jouer(0, Grille.JOUEUR_2);
+		g.jouer(0, Grille.JOUEUR_1);
+		g.jouer(0, Grille.JOUEUR_1);
+		g.jouer(0, Grille.JOUEUR_2);
+		g.jouer(0, Grille.JOUEUR_1);
+
+		g.jouer(1, Grille.JOUEUR_2);
+		g.jouer(1, Grille.JOUEUR_1);
+		g.jouer(1, Grille.JOUEUR_1);
+		g.jouer(1, Grille.JOUEUR_2);
+		g.jouer(1, Grille.JOUEUR_1);
+		g.jouer(1, Grille.JOUEUR_2);
+
+		g.jouer(2, Grille.JOUEUR_1);
+		g.jouer(2, Grille.JOUEUR_2);
+		g.jouer(2, Grille.JOUEUR_1);
+		g.jouer(2, Grille.JOUEUR_2);
+		g.jouer(2, Grille.JOUEUR_1);
+		g.jouer(2, Grille.JOUEUR_1);
+
+		g.jouer(3, Grille.JOUEUR_1);
+		g.jouer(3, Grille.JOUEUR_1);
+		g.jouer(3, Grille.JOUEUR_2);
+		g.jouer(3, Grille.JOUEUR_2);
+		g.jouer(3, Grille.JOUEUR_2);
+		g.jouer(3, Grille.JOUEUR_1);
+
+		g.jouer(4, Grille.JOUEUR_2);
+		g.jouer(4, Grille.JOUEUR_1);
+		g.jouer(4, Grille.JOUEUR_2);
+		g.jouer(4, Grille.JOUEUR_1);
+		g.jouer(4, Grille.JOUEUR_1);
+		g.jouer(4, Grille.JOUEUR_2);
+
+		g.jouer(5, Grille.JOUEUR_2);
+		g.jouer(5, Grille.JOUEUR_1);
+		g.jouer(5, Grille.JOUEUR_2);
+		g.jouer(5, Grille.JOUEUR_2);
+		g.jouer(5, Grille.JOUEUR_1);
+		g.jouer(5, Grille.JOUEUR_1);
+
+		g.jouer(6, Grille.JOUEUR_1);
+		g.jouer(6, Grille.JOUEUR_2);
+		g.jouer(6, Grille.JOUEUR_1);
+		g.jouer(6, Grille.JOUEUR_1);
+		g.jouer(6, Grille.JOUEUR_2);
+		g.jouer(6, Grille.JOUEUR_1);
+
+
+		assertTrue( g.plateauDuJeuEstRempli() );
 	}
 }

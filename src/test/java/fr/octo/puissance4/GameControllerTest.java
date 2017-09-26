@@ -98,5 +98,72 @@ public class GameControllerTest {
 
 	}
 
+	@Test
+	public void VerifieSiPartieNulle() {
+
+		// 1 2 1 1 2 1 1
+		// 2 1 1 2 1 1 2
+		// 1 2 2 2 1 2 1
+		// 1 1 1 2 2 2 1
+		// 2 1 2 1 1 1 2
+		// 1 2 1 1 2 2 1
+		Grille g1 = new Grille();
+		g1.jouer(0, Grille.JOUEUR_1);
+		g1.jouer(0, Grille.JOUEUR_2);
+		g1.jouer(0, Grille.JOUEUR_1);
+		g1.jouer(0, Grille.JOUEUR_1);
+		g1.jouer(0, Grille.JOUEUR_2);
+		g1.jouer(0, Grille.JOUEUR_1);
+
+		g1.jouer(1, Grille.JOUEUR_2);
+		g1.jouer(1, Grille.JOUEUR_1);
+		g1.jouer(1, Grille.JOUEUR_1);
+		g1.jouer(1, Grille.JOUEUR_2);
+		g1.jouer(1, Grille.JOUEUR_1);
+		g1.jouer(1, Grille.JOUEUR_2);
+
+		g1.jouer(2, Grille.JOUEUR_1);
+		g1.jouer(2, Grille.JOUEUR_2);
+		g1.jouer(2, Grille.JOUEUR_1);
+		g1.jouer(2, Grille.JOUEUR_2);
+		g1.jouer(2, Grille.JOUEUR_1);
+		g1.jouer(2, Grille.JOUEUR_1);
+
+		g1.jouer(3, Grille.JOUEUR_1);
+		g1.jouer(3, Grille.JOUEUR_1);
+		g1.jouer(3, Grille.JOUEUR_2);
+		g1.jouer(3, Grille.JOUEUR_2);
+		g1.jouer(3, Grille.JOUEUR_2);
+		g1.jouer(3, Grille.JOUEUR_1);
+
+		g1.jouer(4, Grille.JOUEUR_2);
+		g1.jouer(4, Grille.JOUEUR_1);
+		g1.jouer(4, Grille.JOUEUR_2);
+		g1.jouer(4, Grille.JOUEUR_1);
+		g1.jouer(4, Grille.JOUEUR_1);
+		g1.jouer(4, Grille.JOUEUR_2);
+
+		g1.jouer(5, Grille.JOUEUR_2);
+		g1.jouer(5, Grille.JOUEUR_1);
+		g1.jouer(5, Grille.JOUEUR_2);
+		g1.jouer(5, Grille.JOUEUR_2);
+		g1.jouer(5, Grille.JOUEUR_1);
+		g1.jouer(5, Grille.JOUEUR_1);
+
+		g1.jouer(6, Grille.JOUEUR_1);
+		g1.jouer(6, Grille.JOUEUR_2);
+		g1.jouer(6, Grille.JOUEUR_1);
+		g1.jouer(6, Grille.JOUEUR_1);
+		g1.jouer(6, Grille.JOUEUR_2);
+		g1.jouer(6, Grille.JOUEUR_1);
+
+		GameController gameController1 = new GameController(g1);
+
+		assertTrue( gameController1.partieNulle() );
+
+	}
+
+
+
 }
 
