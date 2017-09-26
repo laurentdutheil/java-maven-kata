@@ -1,6 +1,5 @@
-package fr.octo.fr.octo.puissance4;
+package fr.octo.puissance4;
 
-import fr.octo.puissance4.Grille;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
