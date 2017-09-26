@@ -4,8 +4,8 @@ public class Grille {
     public static final int COLONNE = 7;
     public static final int LIGNE = 6;
 
-    public static final String JOUEUR_1 = "O";
-    public static final String JOUEUR_2 = "*";
+    public static final String JOUEUR_1 = "J";
+    public static final String JOUEUR_2 = "R";
 
     private String[][] plateauDuJeu;
 
