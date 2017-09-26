@@ -7,6 +7,7 @@ import org.junit.rules.ExpectedException;
 
 import java.util.Arrays;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -61,11 +62,12 @@ public class GrilleTest {
      // When
         grille.insertJetonByLineAndColumn(0,0,"o");
         grille.insertJetonByLineAndColumn(1,0,"o");
+        grille.insertJetonByLineAndColumn(2,0,"o");
 
 
 
         //then
-        assertEquals(grille.getNumberLineToInsert(0),2);
+        assertEquals(grille.getNumberLineToInsert(0),3);
 
     }
 
@@ -123,16 +125,17 @@ public class GrilleTest {
      // When
         grille.insertJeton(0,"o");
         grille.insertJeton(0,"*");
-        grille.insertJeton(0,"*");
+        grille.insertJeton(0,"o");
         grille.insertJeton(0,"o");
         grille.insertJeton(0,"o");
         grille.insertJeton(0,"*");
 
+     // grille.getMatrice().toString();
      //then
         String expectedResult =
                 "o......\n" +
                         "*......\n" +
-                        "*......\n" +
+                        ".......\n" +
                         "o......\n" +
                         "o......\n" +
                         "*......\n";
@@ -141,5 +144,25 @@ public class GrilleTest {
 
     }
 
+    @Test
+    public void should_accept_only_two_types() throws MaxJetonsException {
+     // given
+        grille.initGrille();
+     // When
+        grille.insertJeton(0, Grille.getJeton1());
+        grille.insertJeton(0, Grille.getJeton2());
 
+     //then
+
+        int i, j;
+        for (i = 0; i < Grille.getNBLIGNE(); i++) {
+            for (j = 0; j < Grille.getNBCOLONNE(); j++) {
+                assertTrue(grille.getMatrice()[i][j]=="."|| grille.getMatrice()[i][j]==Grille.getJeton1()||grille.getMatrice()[i][j]==Grille.getJeton2());
+
+
+            }
+
+        }
+
+    }
 }
