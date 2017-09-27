@@ -62,10 +62,6 @@ public class Grille {
         return result;
     }
 
-    public String[][] getPlateauDuJeu() {
-        return plateauDuJeu;
-    }
-
     public boolean plateauDuJeuEstRempli() {
         boolean rempli = true;
         for (int c = 0; c < COLONNE && rempli; c++) {

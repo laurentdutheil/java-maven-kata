@@ -7,8 +7,8 @@ public class Vue {
         System.out.println(message);
     }
 
-    public String read() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+    public String lire() {
+        Scanner numeriseur = new Scanner(System.in);
+        return numeriseur.nextLine();
     }
 }
