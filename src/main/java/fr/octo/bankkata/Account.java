@@ -23,18 +23,4 @@ public class Account {
         List<Transaction> transactions = transactionRepository.getTransactions();
         transactionPrinter.print(transactions);
     }
-
-    public static void main(String[] args) {
-        Clock clock = new Clock();
-        TransactionRepository transactionRepository = new TransactionRepository(clock);
-        Console console = new Console();
-        TransactionPrinter transactionPrinter = new TransactionPrinter(console);
-        Account account = new Account(transactionRepository, transactionPrinter);
-
-        account.deposit(1000);
-        account.withdraw(100);
-        account.deposit(500);
-
-        account.printStatement();
-    }
 }

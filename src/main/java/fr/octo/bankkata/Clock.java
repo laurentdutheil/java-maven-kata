@@ -1,12 +1,11 @@
 package fr.octo.bankkata;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Clock {
-    private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
     public String currentDate() {
-        return formatter.format(new Date());
+        return LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 }

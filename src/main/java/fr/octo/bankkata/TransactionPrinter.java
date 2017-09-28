@@ -3,6 +3,9 @@ package fr.octo.bankkata;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class TransactionPrinter {
     private Console console;
@@ -15,23 +18,18 @@ public class TransactionPrinter {
     public void print(List<Transaction> transactions) {
         console.print("DATE | AMOUNT | BALANCE");
 
-        int totalAmount = 0;
-        Stack<String> printedTransactions = calculateBalancesAndFormat(transactions, totalAmount);
-
-        while (printedTransactions.size() > 0) {
-            String printedTransaction = printedTransactions.pop();
-            console.print(printedTransaction);
-        }
+        AtomicInteger totalAmount = new AtomicInteger(0);
+        transactions.stream()
+                .map(transaction -> formatTransaction(transaction, totalAmount))
+                .collect(Collectors.toCollection(LinkedList::new))
+                .descendingIterator()
+                .forEachRemaining(console::print);
     }
 
-    private Stack<String> calculateBalancesAndFormat(List<Transaction> transactions, int totalAmount) {
-        Stack<String> printedTransactions = new Stack<>();
-        for (Transaction transaction : transactions) {
-            totalAmount += transaction.getAmount();
-            printedTransactions.push(transaction.getDate()
-                    + " | " + decimalFormat.format(transaction.getAmount())
-                    + " | " + decimalFormat.format(totalAmount));
-        }
-        return printedTransactions;
+    private String formatTransaction(Transaction transaction, AtomicInteger totalAmount) {
+        return transaction.getDate()
+                + " | " + decimalFormat.format(transaction.getAmount())
+                + " | " + decimalFormat.format(totalAmount.addAndGet(transaction.getAmount()));
     }
+
 }
