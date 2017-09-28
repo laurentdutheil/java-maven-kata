@@ -14,11 +14,11 @@ public class Arbitre {
     private String etatPartie;
     private String vainqueur;
 
-    public Arbitre() {
-        grille = new Grille();
+    public Arbitre(Grille grille, Analyseur analyseur) {
+        this.grille = grille;
         joueurEnCours = JOUEUR_JAUNE;
         etatPartie = PARTIEENCOURS;
-        analyseur=  new Analyseur(grille);
+        this.analyseur = analyseur;
         vainqueur = "";
     }
 

@@ -11,7 +11,8 @@ public class ArbitreTest {
 
     @Before
     public void setUp() throws Exception {
-       arbitre  = new Arbitre();
+        Grille grille = new Grille();
+        arbitre  = new Arbitre(grille, new Analyseur(grille));
     }
 
 
